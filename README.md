@@ -4,7 +4,6 @@
 
 ```shell
 npm i --save-dev @types/node
-npm i --save-dev @types/node
 ```
 
 
