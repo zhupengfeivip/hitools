@@ -1,5 +1,5 @@
-import test, {describe, it} from "node:test";
-import {timeHelper} from "../src/timeHelper";
+// import test, { describe, it } from 'node:test'
+import { timeHelper } from '../src/timeHelper'
 
 // describe('add', () => {
 //   it('dateFormat', () => {
@@ -9,5 +9,9 @@ import {timeHelper} from "../src/timeHelper";
 //     expect(val).toEqual(expValue)
 //   });
 // });
-const val = timeHelper.dateFormat(new Date(),'YY-m-d H:M:S');
-console.log(val)
+function getLongTimeTest() {
+	const val = timeHelper.getLongTime(new Date())
+	console.log(val)
+}
+
+getLongTimeTest()
