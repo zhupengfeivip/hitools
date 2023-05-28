@@ -15,6 +15,10 @@ origin  git@gitee.com:bonn_admin/hitools.git (push)
 git submodule add -f https://github.com/zhupengfeivip/hitools.git src/hitools
 
 git submodule add -f git@github.com:zhupengfeivip/hitools.git src/hitools
+
+
+gitree
+git submodule add -f git@gitee.com:bonn_admin/hitools.git
 ```
 
 
