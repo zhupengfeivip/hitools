@@ -3,6 +3,28 @@
  */
 export class timeHelper {
 	/**
+	 * 获取当前日期的字符串格式
+	 * @param fmt
+	 */
+	public static getNowDateBcd(fmt: 'yyMMddHHmmss' | 'yyyy-MM-dd HH:mm:ss') {
+		const date = new Date()
+		let year = date.getFullYear() // 获取年份
+		const month = String(date.getMonth() + 1).padStart(2, '0') // 获取月份，需要补零
+		const day = String(date.getDate()).padStart(2, '0') // 获取日期，需要补零
+		const hour = String(date.getHours()).padStart(2, '0') // 获取小时，需要补零
+		const minute = String(date.getMinutes()).padStart(2, '0') // 获取分钟，需要补零
+		const second = String(date.getSeconds()).padStart(2, '0') // 获取秒钟，需要补零
+		if (fmt == 'yyMMddHHmmss') {
+			year = year - 2000 // 获取年份
+			return `${year}${month}${day}${hour}${minute}${second}`
+		} else if (fmt == 'yyyy-MM-dd HH:mm:ss') {
+			return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+		} else {
+			throw new Error('暂不支持')
+		}
+	}
+
+	/**
 	 * 日期格式化
 	 * @param date
 	 * @param fmt
@@ -23,40 +45,23 @@ export class timeHelper {
 		}
 		for (let k in opt) {
 			ret = new RegExp('(' + k + ')').exec(fmt)
-			if (ret) {
-				fmt = fmt.replace(ret[1], ret[1].length == 1 ? opt[k] : opt[k].padStart(ret[1].length, '0'))
-			}
+			if (ret) fmt = fmt.replace(ret[1], ret[1].length == 1 ? opt[k] : opt[k].padStart(ret[1].length, '0'))
 		}
 		return fmt
 	}
 
 	/**
-	 *
+	 * 输出：2023-04-29 00:30:58
 	 * @param date
 	 */
 	public static getLongTime(date?: Date) {
 		if (date == undefined) date = new Date()
-		const year = date.getFullYear()
-		let mon = date.getMonth() + 1
-
-		let strMon: string = mon.toString()
-		if (mon < 10) strMon = '0' + mon.toString()
-
-		const day = date.getDate()
-		let strDay: string = day.toString()
-		if (day < 10) strDay = '0' + strDay
-
-		const hour = date.getHours()
-		let strHour: string = hour.toString()
-		if (hour < 10) strHour = '0' + strHour
-
-		const min = date.getMinutes()
-		let strMin: string = min.toString()
-		if (min < 10) strMin = '0' + strMin
-
-		const sec = date.getSeconds()
-		let strSec: string = sec.toString()
-		if (sec < 10) strSec = '0' + strSec
-		return `${year}-${strMon}-${strDay} ${strHour}:${strMin}:${strSec}`
+		const year = date.getFullYear() // 获取年份
+		const month = String(date.getMonth() + 1).padStart(2, '0') // 获取月份，需要补零
+		const day = String(date.getDate()).padStart(2, '0') // 获取日期，需要补零
+		const hour = String(date.getHours()).padStart(2, '0') // 获取小时，需要补零
+		const minute = String(date.getMinutes()).padStart(2, '0') // 获取分钟，需要补零
+		const second = String(date.getSeconds()).padStart(2, '0') // 获取秒钟，需要补零
+		return `${year}-${month}-${day} ${hour}:${minute}:${second}`
 	}
 }
