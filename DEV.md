@@ -24,5 +24,6 @@ git submodule add -f git@gitee.com:bonn_admin/hitools.git src/hitools
 
 # 作为npm包
 
-
+使用npm login登录npm平台
+npm publish发布版本
 
