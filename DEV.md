@@ -40,14 +40,19 @@ Press ENTER to open in the browser...
 
 Logged in on https://registry.npmjs.org/.
 
-// 控制台会返回下一个小版本号 如v1.0.1
+// 控制台会返回下一个小版本号 如v1.0.1 并自动修改package.json文件 不需要人工修改 但是需要先人工提交代码
 npm version patch
+// patch：补丁号，修复bug，小变动，如 v1.0.0->v1.0.1
+npm version patch
+
+// minor：次版本号，增加新功能，如 v1.0.0->v1.1.0
+npm version minor
+
+// major：主版本号，不兼容的修改，如 v1.0.0->v2.0.0
+npm version major
 
 // 发布命令
 npm publish
-
-请注意发布时版本号必须加一，版本号必须比已发布的大，否则会发布失败。
-
 
 引用项目强制更新某一版本
 pnpm add hightools@1.0.1
