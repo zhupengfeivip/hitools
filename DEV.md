@@ -58,5 +58,8 @@ npm publish
 pnpm add hightools@1.0.1
 
 
+
+npm link
+
 ```
 
