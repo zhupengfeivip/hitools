@@ -1,6 +1,6 @@
 {
   "name": "hightools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "nodejs lib",
   "main": "index.js",
   "scripts": {
