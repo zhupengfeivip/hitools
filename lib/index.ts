@@ -8,12 +8,12 @@ import * as stringHelper from './stringHelper'
 import * as webHelper from './webHelper'
 
 export default {
-	...timeHelper,
-	...systemHelper,
-	...buffHelper,
-	...listHelper,
-	...md5,
-	...objectHelper,
-	...stringHelper,
-	...webHelper
+	timeHelper,
+	systemHelper,
+	buffHelper,
+	listHelper,
+	md5,
+	objectHelper,
+	stringHelper,
+	webHelper
 }
