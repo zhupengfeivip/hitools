@@ -1,4 +1,4 @@
-import { buffHelper } from '../src/buffHelper'
+import { buffHelper } from '../lib/buffHelper'
 
 function bcdBuff2Str() {
 	const buffer = Buffer.from([0x12, 0x34, 0x56])

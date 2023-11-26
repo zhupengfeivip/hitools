@@ -5,11 +5,13 @@
 ```shell
 npm i --save-dev hightools
 
-pnpm add hightools
+npm i --save-dev hightools@latest 
+pnpm add hightools@latest  
+
 ```
 
 
-# demo
+# 使用方法
 
 ```javascript
 
