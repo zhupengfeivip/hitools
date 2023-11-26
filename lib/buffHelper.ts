@@ -46,15 +46,27 @@ export class buffHelper {
 	}
 
 	/**
-	 * 将byte转换为bool列表，按位转换index = 0 对应bit0
+	 * 将byte转换为bool列表，如 0x01 转换为[1,0,0,0,0,0,0,0]，按位转换index = 0 对应bit0
+	 * @returns
+	 * @param byte
+	 */
+	public static byte2bitList(byte: number): number[] {
+		let strOut = this.byte2BinStr(byte)
+		let arrBool: number[] = []
+		for (let i = 0; i < strOut.length; i++) arrBool.push(parseInt(strOut[strOut.length - 1 - i]))
+
+		return arrBool
+	}
+
+	/**
+	 * 将byte转换为bool列表，如 0x01 转换为[true,false,false,false,false,false,false,false]，按位转换index = 0 对应bit0
 	 * @returns
 	 * @param byte
 	 */
 	public static byte2BoolList(byte: number): boolean[] {
-		//TODO 这里暂时只考虑一个byte大小的，因为大多数情况下都是一个字节一个字节处理的
 		let strOut = this.byte2BinStr(byte)
 		let arrBool = []
-		for (let i = 0; i < strOut.length; i++) arrBool.push(strOut[i] == '1')
+		for (let i = 0; i < strOut.length; i++) arrBool.push(strOut[strOut.length - 1 - i] == '1')
 
 		return arrBool
 	}
