@@ -1,6 +1,6 @@
 {
   "name": "hightools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "nodejs lib",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,12 @@
   },
   "author": "zhupengfei",
   "license": "ISC",
-  "keywords": ["utils", "nodejs", "md5", "time"],
+  "keywords": [
+    "utils",
+    "nodejs",
+    "md5",
+    "time"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/zhupengfeivip/hitools"
