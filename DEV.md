@@ -61,5 +61,9 @@ pnpm add hightools@1.0.1
 
 npm link
 npm link hightools
+
+
+pnpm link 
+pnpm link --global hightools
 ```
 

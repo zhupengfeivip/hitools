@@ -1,5 +1,5 @@
 /**
- *
+ * buff处理类
  */
 export class buffHelper {
 	/**
@@ -66,7 +66,9 @@ export class buffHelper {
 	public static byte2BoolList(byte: number): boolean[] {
 		let strOut = this.byte2BinStr(byte)
 		let arrBool = []
-		for (let i = 0; i < strOut.length; i++) arrBool.push(strOut[strOut.length - 1 - i] == '1')
+		for (let i = 0; i < strOut.length; i++) {
+			arrBool.push(strOut[strOut.length - 1 - i] == '1')
+		}
 
 		return arrBool
 	}
