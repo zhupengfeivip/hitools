@@ -22,8 +22,8 @@ export class buffHelper {
 	}
 
 	/**
-	 * byte数组转换为BCD码字符串，如0x22,0x04,0x11转换为220411
-	 * @param bcdBuff
+	 * byte数组转换为BCD码字符串，如0x22,0x04,0x11转换为220411, 不允许出现字母
+	 * @param bcdBuff 不允许出现字母
 	 * @returns
 	 */
 	public static bcdBuff2Str(bcdBuff: Buffer): string {
@@ -35,12 +35,23 @@ export class buffHelper {
 	}
 
 	/**
+	 * byte数组转换为字符串，如0xAA,0x04,0x11转换为AA0411
+	 * @param buff
+	 * @returns
+	 */
+	public static hexBuff2Str(buff: Buffer): string {
+		return buff.toString('hex')
+	}
+
+	/**
 	 * 将byte转换为二进制字符串，如 0x0A 转换为 0000 1010
 	 * @returns
 	 * @param byte
 	 */
 	public static byte2BinStr(byte: number): string {
 		//TODO 这里暂时只考虑一个byte大小的，因为大多数情况下都是一个字节一个字节处理的
+		if (byte > 255) throw new Error('暂时不支持超过256大小的数字')
+
 		let strOut = '00000000' + byte.toString(2)
 		return strOut.substring(strOut.length - 8, strOut.length)
 	}
