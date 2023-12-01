@@ -1,7 +1,7 @@
 /**
  * buff处理类
  */
-export class buffHelper {
+module.exports = class buffHelper {
 	/**
 	 * BCD码字符串转换为byte数组，
 	 * 如010203转换为<Buffer 01 02 03>
