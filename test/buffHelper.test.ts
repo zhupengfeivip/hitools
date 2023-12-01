@@ -23,4 +23,11 @@ describe('buffHelper', () => {
 		const bcd = buffHelper.hexBuff2Str(buffer) // "123456"
 		console.log(bcd)
 	})
+
+	test('hexStr2Buff', () => {
+		const ourResult = true
+		const hexString = '123ABCFF158'
+		const bcd = buffHelper.hexStr2Buff(hexString) // "123456"
+		console.log(bcd)
+	})
 })

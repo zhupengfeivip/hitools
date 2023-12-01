@@ -100,6 +100,15 @@ export class buffHelper {
 	}
 
 	/**
+	 * 字符串转换为Buffer，如123ABC转换为<Buffer 12 3A BC>
+	 * @param hexString
+	 * @returns
+	 */
+	public static hexStr2Buff(hexString: string): Buffer {
+		return Buffer.from(hexString, 'hex')
+	}
+
+	/**
 	 * 将4字节32位类型的数字转换为Buffer，如1000转换为<Buffer 00 00 03 e8>
 	 * @param val
 	 * @returns
