@@ -9,7 +9,7 @@ module.exports = class buffHelper {
 	 * @param str 长度必须是偶数
 	 * @returns
 	 */
-	public static str2bcd(str: string): Buffer {
+	public str2bcd(str: string): Buffer {
 		// 如果判断长度不是偶数，前面补0
 		if (str.length % 2 != 0) str = '0' + str
 
@@ -26,7 +26,7 @@ module.exports = class buffHelper {
 	 * @param bcdBuff 不允许出现字母
 	 * @returns
 	 */
-	public static bcdBuff2Str(bcdBuff: Buffer): string {
+	public bcdBuff2Str(bcdBuff: Buffer): string {
 		let bcd = ''
 		for (const byte of bcdBuff) {
 			bcd += ((byte >> 4) & 0x0f).toString() + (byte & 0x0f).toString()
@@ -39,7 +39,7 @@ module.exports = class buffHelper {
 	 * @param buff
 	 * @returns
 	 */
-	public static hexBuff2Str(buff: Buffer): string {
+	public hexBuff2Str(buff: Buffer): string {
 		return buff.toString('hex')
 	}
 
@@ -48,7 +48,7 @@ module.exports = class buffHelper {
 	 * @returns
 	 * @param byte
 	 */
-	public static byte2BinStr(byte: number): string {
+	public byte2BinStr(byte: number): string {
 		//TODO 这里暂时只考虑一个byte大小的，因为大多数情况下都是一个字节一个字节处理的
 		if (byte > 255) throw new Error('暂时不支持超过256大小的数字')
 
@@ -61,7 +61,7 @@ module.exports = class buffHelper {
 	 * @returns
 	 * @param byte
 	 */
-	public static byte2bitList(byte: number): number[] {
+	public byte2bitList(byte: number): number[] {
 		let strOut = this.byte2BinStr(byte)
 		let arrBool: number[] = []
 		for (let i = 0; i < strOut.length; i++) arrBool.push(parseInt(strOut[strOut.length - 1 - i]))
@@ -74,7 +74,7 @@ module.exports = class buffHelper {
 	 * @returns
 	 * @param byte
 	 */
-	public static byte2BoolList(byte: number): boolean[] {
+	public byte2BoolList(byte: number): boolean[] {
 		let strOut = this.byte2BinStr(byte)
 		let arrBool = []
 		for (let i = 0; i < strOut.length; i++) {
@@ -89,7 +89,7 @@ module.exports = class buffHelper {
 	 * @param str
 	 * @returns
 	 */
-	public static str2AsciiBuff(str: string): Buffer {
+	public str2AsciiBuff(str: string): Buffer {
 		if (str == undefined || str.length == 0) return Buffer.alloc(0)
 
 		let retBuffer = Buffer.alloc(str.length)
@@ -104,7 +104,7 @@ module.exports = class buffHelper {
 	 * @param hexString
 	 * @returns
 	 */
-	public static hexStr2Buff(hexString: string): Buffer {
+	public hexStr2Buff(hexString: string): Buffer {
 		return Buffer.from(hexString, 'hex')
 	}
 
@@ -113,7 +113,7 @@ module.exports = class buffHelper {
 	 * @param val
 	 * @returns
 	 */
-	public static Int32BEToBuf(val: number) {
+	public Int32BEToBuf(val: number) {
 		const buf = Buffer.alloc(4)
 		// 大端在前模式
 		buf.writeInt32BE(val, 0)
@@ -125,7 +125,7 @@ module.exports = class buffHelper {
 	 * @param val
 	 * @returns
 	 */
-	public static Int32LEToBuf(val: number) {
+	public Int32LEToBuf(val: number) {
 		const buf = Buffer.alloc(4)
 		// 大端在前模式
 		buf.writeInt32LE(val, 0)
